@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Footer } from "@/components/Footer";
 import { OrbitMark } from "@/components/OrbitMark";
 import { Particles } from "@/components/Particles";
 import { Preloader } from "@/components/Preloader";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -16,22 +18,27 @@ function Index() {
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(1000px 600px at 50% -10%, rgba(200,183,166,0.22), transparent 60%), radial-gradient(700px 500px at 90% 110%, rgba(234,231,226,0.9), transparent 60%)",
-        }}
+        style={{ background: "var(--ambient-gradient)" }}
       />
       <Particles />
 
       {/* Top bar */}
       <header className="relative z-10 flex items-center justify-between px-6 py-6 sm:px-10">
         <div className="font-display text-sm tracking-[0.3em] text-foreground/70">
-          <a href="/" >
-            <img src="/Logo_Inverted.png" alt="Orbit Logo" className="h-8 w-8" />
+          <a href="/">
+            <img
+              src="/Logo_Inverted.png"
+              alt="Orbit Logo"
+              className="h-8 w-8 dark:hidden"
+            />
+            <img src="/Logo.png" alt="Orbit Logo" className="hidden h-8 w-8 dark:block" />
           </a>
         </div>
-        <div className="hidden font-sans text-xs uppercase tracking-[0.28em] text-muted-foreground sm:block">
-          Community · Est. 2026
+        <div className="flex items-center gap-3 sm:gap-4">
+          <ThemeToggle />
+          <div className="hidden font-sans text-xs uppercase tracking-[0.28em] text-muted-foreground sm:block">
+            Community · Est. 2026
+          </div>
         </div>
       </header>
 
@@ -89,6 +96,8 @@ function Index() {
           </a>
         </div>
       </section>
+
+      <Footer />
     </main>
   );
 }

@@ -86,7 +86,7 @@ export function OrbitMark({ className = "" }: { className?: string }) {
               cy="200"
               r="150"
               fill="none"
-              stroke="#111111"
+              stroke="var(--foreground)"
               strokeWidth="1.6"
               strokeLinecap="round"
               strokeDasharray="880 60"
@@ -107,7 +107,7 @@ export function OrbitMark({ className = "" }: { className?: string }) {
               cy="200"
               r="62"
               fill="none"
-              stroke="#111111"
+              stroke="var(--foreground)"
               strokeWidth="10"
             />
           </g>
